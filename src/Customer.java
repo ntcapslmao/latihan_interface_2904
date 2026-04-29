@@ -1,14 +1,14 @@
-public class Costumer extends User {
+public class Customer extends User {
     private String addressName;
 
-    Costumer(String name, int xCoordinate, int yCoordinate, String addressName) {
+    Customer(String name, int xCoordinate, int yCoordinate, String addressName) {
         super(name, xCoordinate, yCoordinate);
         this.addressName = addressName;
     }
 
     @Override
     public String getRole() {
-        return "costumer";
+        return "customer";
     }
 
     public String getAddressName() {
