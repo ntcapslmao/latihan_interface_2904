@@ -9,13 +9,12 @@ public abstract class User {
         this.yCoordinate = yCoordinate;
     }
 
-    public String getRole() { return null; }
+    public abstract String getRole();
+    public abstract void displayInfo();
 
     public String getName() { return name; }
 
     public int getXCoordinate() { return xCoordinate; }
 
     public int getYCoordinate() { return yCoordinate; }
-
-    public void displayInfo() {}
 }

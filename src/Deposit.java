@@ -16,10 +16,13 @@ public class Deposit implements Payment {
         }
     }
 
-    public void topUp(double amount) {
+    public void topUp(double amount) throws Exception {
         if (amount > 0) {
             balance += amount;
             System.out.printf("Berhasil menambahkan saldo sebesar: Rp%,.2f | Saldo Terkini: Rp%,.2f\n", amount, balance);
+        }
+        else {
+            throw new IllegalArgumentException();
         }
     }
 

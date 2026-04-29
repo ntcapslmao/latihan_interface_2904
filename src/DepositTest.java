@@ -44,7 +44,7 @@ public class DepositTest {
     }
 
     @Test
-    public void topUpBerhasilTest() {
+    public void topUpBerhasilTest() throws Exception {
         deposit.topUp(15000);
 
         assertEquals(30000, deposit.getBalance(), 0.01);
@@ -53,5 +53,15 @@ public class DepositTest {
         String actual = outputStream.toString().trim();
 
         assertEquals(expected, actual);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void topUpGagalNolRupiahTest() throws Exception {
+        deposit.topUp(0);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void topUpGagalNegativeTest() throws Exception {
+        deposit.topUp(-1);
     }
 }
