@@ -1,4 +1,4 @@
-public class StandardCalculator implements feeCalculator {
+public class StandardCalculator implements FeeCalculator {
     public double calculateDistance(User source, User destination) {
         double deltaX = source.getXCoordinate() - destination.getXCoordinate();
         double deltaY = source.getYCoordinate() - destination.getYCoordinate();

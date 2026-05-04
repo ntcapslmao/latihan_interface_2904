@@ -1,6 +1,7 @@
 public class MainDeliveryApp {
     public static void main(String[] args) {
         System.out.println("=== Inisialisasi Pengguna ===");
+        FeeCalculator feeCalculator = new StandardCalculator();
         
         Farmer farmer1 = new Farmer("Pak Somad", 2, 5, "Kebun Kukusan");
         farmer1.displayInfo();
@@ -14,16 +15,16 @@ public class MainDeliveryApp {
         System.out.println("\n=== Kasus 1: Pembayaran COD ===");
         Payment codPayment = new COD();
         
-        Order order1 = new Order("ORD-001", 50000, farmer1, customer1, codPayment);
+        Order order1 = new Order("ORD-001", 50000, farmer1, customer1, codPayment, feeCalculator);
         order1.processOrder();
 
         System.out.println("\n=== Kasus 2: Pembayaran Deposit (Sukses) ===");
         Deposit depositPayment = new Deposit(150000); // Saldo awal Rp 150.000
-        Order order2 = new Order("ORD-002", 75000, farmer1, customer1, depositPayment);
+        Order order2 = new Order("ORD-002", 75000, farmer1, customer1, depositPayment, feeCalculator);
         order2.processOrder();
 
         System.out.println("\n=== Kasus 3: Pembayaran Deposit (Gagal & Top Up) ===");
-        Order order3 = new Order("ORD-003", 100000, farmer1, customer1, depositPayment);
+        Order order3 = new Order("ORD-003", 100000, farmer1, customer1, depositPayment, feeCalculator);
         order3.processOrder(); // Pembayaran seharusnya ditolak karena saldo kurang
         
         System.out.println("\n-- Melakukan Top Up Saldo --");

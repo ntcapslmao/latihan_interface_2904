@@ -11,6 +11,7 @@ public class OrderTest {
     private Customer customer;
     private Payment payment;
     private Order order;
+    private FeeCalculator feeCalculator;
 
     @Before
     public void setUp() {
@@ -18,7 +19,8 @@ public class OrderTest {
         farmer = new Farmer("Mizuki Akiyama", 0, 0, "Pondok Labu");
         customer = new Customer("Ena Shinonome", 3, 4, "Jl. Margasatwa, No. 1");
         payment = new COD();
-        order = new Order("P001", 65000, farmer, customer, payment);
+        feeCalculator = new StandardCalculator();
+        order = new Order("P001", 65000, farmer, customer, payment, feeCalculator);
     }
 
     @After
@@ -28,7 +30,7 @@ public class OrderTest {
 
     @Test
     public void constructorTest() {
-        new Order("P001", 65000, farmer, customer, payment);
+        new Order("P001", 65000, farmer, customer, payment, feeCalculator);
     }
 
     @Test
